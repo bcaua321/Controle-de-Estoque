@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public  class Lista {
-    private ArrayList<Produto> listaDeProdutos = new ArrayList<Produto>();
+public class Lista {
+    private static ArrayList<Produto> listaDeProdutos = new ArrayList<Produto>();
 
 
     public void addElemento(Produto produto){
-        this.listaDeProdutos.add(produto);
+        Lista.listaDeProdutos.add(produto);
     }
 
     public void removeElemento(int index){
-        this.listaDeProdutos.remove(index);
+        Lista.listaDeProdutos.remove(index);
     }
 
     public ArrayList<Produto> getListaDeProdutos() {
-        return this.listaDeProdutos;
+        return Lista.listaDeProdutos;
     }
 
     public ArrayList<Produto> cadastrar(Produto p){

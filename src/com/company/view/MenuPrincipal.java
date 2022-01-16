@@ -1,9 +1,12 @@
 package com.company.view;
+import com.company.Produtos.Lista;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
     private static Scanner input = new Scanner(System.in);
+    public Lista lista = new Lista();
 
     public void mostrarMenuPrincipal() throws IOException, InterruptedException {
         Cadastrar cadastrar = new Cadastrar();
@@ -18,7 +21,11 @@ public class MenuPrincipal {
                 cadastrar.cadastrarProduto();
                 break;
             case 2:
-
+                System.out.println(lista.getListaDeProdutos());
+                mostrarMenuPrincipal();
+                break;
+            default:
+                System.out.println(":)");
         }
     }
 
