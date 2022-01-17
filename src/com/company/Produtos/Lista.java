@@ -10,12 +10,9 @@ import java.util.Scanner;
 
 public class Lista {
     private static ArrayList<Produto> listaDeProdutos = new ArrayList<Produto>();
-
-
     public void addElemento(Produto produto){
         Lista.listaDeProdutos.add(produto);
     }
-
     public void removeElemento(int index){
         Lista.listaDeProdutos.remove(index);
     }
@@ -27,16 +24,16 @@ public class Lista {
     public ArrayList<Produto> cadastrar(Produto p){
         Scanner input = new Scanner(System.in);
 
-        System.out.println("--- Cadastro de Produto ---");
-        System.out.println("Código: ");
-        int code = input.nextInt();
-        System.out.println("Produto: ");
-        String produto = input.nextLine();
-        System.out.println("Fornecedor: ");
-        String fornecedor = input.nextLine();
-        System.out.println("Categoria: ");
-        String categoria = input.nextLine();
-
+            System.out.println("--- Cadastro de Produto ---");
+            System.out.println("Código: ");
+            int code = input.nextInt();
+            System.out.println("Produto: ");
+            input.nextLine();
+            String produto = input.nextLine();
+            System.out.println("Fornecedor: ");
+            String fornecedor = input.nextLine();
+            System.out.println("Categoria: ");
+            String categoria = input.nextLine();
         String data;
         if(p instanceof ProdutoPerecivel){
             System.out.println("Data de Validade: ");

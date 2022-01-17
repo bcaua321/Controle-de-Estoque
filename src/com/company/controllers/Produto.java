@@ -27,8 +27,8 @@ public abstract class Produto {
         return this.produto;
     }
 
-    public void setProduto(String nome) {
-        this.produto = nome;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
     public String getFornecedor() {

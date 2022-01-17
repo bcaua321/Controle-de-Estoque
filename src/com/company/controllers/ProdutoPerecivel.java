@@ -5,7 +5,9 @@ public class ProdutoPerecivel extends Produto{
 
     public ProdutoPerecivel() {}
 
-    public ProdutoPerecivel(int codigo, String produto, String fornecedor, String categoria, String dataDeValidade){
+    public ProdutoPerecivel(int codigo, String produto,
+                            String fornecedor, String categoria,
+                            String dataDeValidade){
         super(codigo, produto, fornecedor, categoria);
         this.setDataDeValidade(dataDeValidade);
     }
