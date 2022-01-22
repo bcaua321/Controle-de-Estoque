@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class ProdutoNaoPerecivel extends Produto {
     private String dataDeCompra;
+    private String produtoEh = "nPerecivel";
 
     public ProdutoNaoPerecivel() {}
 
     public ProdutoNaoPerecivel(int codigo, String produto, String fornecedor, String categoria, String dataDeCompra){
-        super(codigo, produto, fornecedor, categoria);
-        this.setDataDeCompra(dataDeCompra);
+        super(codigo, produto, fornecedor, categoria, dataDeCompra);
     }
 
     public String getDataDeCompra() {
@@ -20,6 +20,9 @@ public class ProdutoNaoPerecivel extends Produto {
         this.dataDeCompra = dataDeCompra;
     }
 
+    public String getProdutoEh() {
+        return produtoEh;
+    }
     @Override
     public String toString() {
         return "Código: " + this.getCodigo() + "\n" + "Produto: " +

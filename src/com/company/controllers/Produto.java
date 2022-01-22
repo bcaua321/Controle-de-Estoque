@@ -5,14 +5,25 @@ public abstract class Produto {
     private String produto;
     private String fornecedor;
     private String categoria;
+    private String produtoEh;
+    private String dataDeCompra;
 
     public Produto(){}
 
-    public Produto(int codigo, String produto, String fornecedor, String categoria){
-        this.setCodigo(codigo);
-        this.setProduto(produto);
-        this.setFornecedor(fornecedor);
-        this.setCategoria(categoria);
+    public Produto(int codigo, String produto, String fornecedor, String categoria, String dataDeCompra){
+        this.codigo = codigo;
+        this.produto = produto;
+        this.fornecedor = fornecedor;
+        this.categoria = categoria;
+        this.dataDeCompra = dataDeCompra;
+    }
+
+    public String getDataDeCompra() {
+        return dataDeCompra;
+    }
+
+    public void setDataDeCompra(String dataDeCompra) {
+        this.dataDeCompra = dataDeCompra;
     }
 
     public int getCodigo() {
@@ -46,4 +57,6 @@ public abstract class Produto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public String getProdutoEh() { return produtoEh; }
 }

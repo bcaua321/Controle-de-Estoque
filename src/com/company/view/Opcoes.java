@@ -18,7 +18,7 @@ public class Opcoes {
                 ANSI_PURPLE + "1 " + ANSI_RESET + "- Cadastrar um novo Produto" + "\t\t|",
                 ANSI_PURPLE + "2 " + ANSI_RESET  + "- Mostrar Produtos já Cadastrados" + "\t|",
                 ANSI_PURPLE + "3 " + ANSI_RESET  + "- Organizar produtos" + "\t\t\t\t|",
-                ANSI_PURPLE + "4 " + ANSI_RESET  + "- Imprimir Arquivos" + "\t\t\t\t|",
+                ANSI_PURPLE + "4 " + ANSI_RESET  + "- Sair" + "\t\t\t\t\t\t\t|",
                 ANSI_CYAN + "=====================================" + ANSI_RESET
         };
 

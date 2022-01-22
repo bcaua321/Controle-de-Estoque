@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Lista {
     private static ArrayList<Produto> listaDeProdutos = new ArrayList<Produto>();
     public void addElemento(Produto produto){
@@ -21,9 +22,9 @@ public class Lista {
         return Lista.listaDeProdutos;
     }
 
-    public ArrayList<Produto> cadastrar(Produto p){
+    public void cadastrar(Produto p){
+        Arquivo arq = new Arquivo();
         Scanner input = new Scanner(System.in);
-
             System.out.println("--- Cadastro de Produto ---");
             System.out.println("Código: ");
             int code = input.nextInt();
@@ -50,6 +51,6 @@ public class Lista {
         }
 
         this.addElemento(p);
-        return this.getListaDeProdutos();
+        arq.criaArquivo();
     }
 }
