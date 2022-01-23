@@ -1,29 +1,29 @@
 package com.company.controllers;
 
 public abstract class Produto {
+    private int id;
     private int codigo;
     private String produto;
     private String fornecedor;
     private String categoria;
     private String produtoEh;
-    private String dataDeCompra;
 
     public Produto(){}
 
-    public Produto(int codigo, String produto, String fornecedor, String categoria, String dataDeCompra){
+    public Produto(int id, int codigo, String produto, String fornecedor, String categoria){
+        this.id = id;
         this.codigo = codigo;
         this.produto = produto;
         this.fornecedor = fornecedor;
         this.categoria = categoria;
-        this.dataDeCompra = dataDeCompra;
     }
 
-    public String getDataDeCompra() {
-        return dataDeCompra;
+    public int getId() {
+        return id;
     }
 
-    public void setDataDeCompra(String dataDeCompra) {
-        this.dataDeCompra = dataDeCompra;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCodigo() {

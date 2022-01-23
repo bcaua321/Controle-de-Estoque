@@ -8,8 +8,9 @@ public class ProdutoNaoPerecivel extends Produto {
 
     public ProdutoNaoPerecivel() {}
 
-    public ProdutoNaoPerecivel(int codigo, String produto, String fornecedor, String categoria, String dataDeCompra){
-        super(codigo, produto, fornecedor, categoria, dataDeCompra);
+    public ProdutoNaoPerecivel(int id, int codigo, String produto, String fornecedor, String categoria, String dataDeCompra){
+        super(id, codigo, produto, fornecedor, categoria);
+        this.dataDeCompra = dataDeCompra;
     }
 
     public String getDataDeCompra() {
@@ -25,7 +26,7 @@ public class ProdutoNaoPerecivel extends Produto {
     }
     @Override
     public String toString() {
-        return "Código: " + this.getCodigo() + "\n" + "Produto: " +
+        return "id:" +this.getId() + "\n" + "Código: " + this.getCodigo() + "\n" + "Produto: " +
                 this.getProduto() + "\n" + "Fornecedor: "
                 + this.getFornecedor() + "\n" + "Categoria: " + this.getCategoria()
                 + "\n" + "Data de Compra: " + this.getDataDeCompra();

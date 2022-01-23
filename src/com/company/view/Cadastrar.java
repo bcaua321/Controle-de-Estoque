@@ -9,7 +9,8 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class Cadastrar extends MenuPrincipal{
+public class Cadastrar {
+    MenuPrincipal menu = new MenuPrincipal();
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_RESET = "\u001B[0m";
 
@@ -26,25 +27,23 @@ public class Cadastrar extends MenuPrincipal{
 
         switch (valor){
             case 1:
-                Produto p = new ProdutoPerecivel();
+                ProdutoPerecivel p = new ProdutoPerecivel();
                 try{
-                    super.lista.cadastrar(p);
+                    menu.lista.cadastrar(p);
                 } catch (NoSuchElementException e){
                     System.out.println(ANSI_RED + "Valor inválido" + ANSI_RESET);
                 }
-                cadastrarProduto();
                 break;
             case 2:
-                Produto p1 = new ProdutoNaoPerecivel();
+                ProdutoNaoPerecivel p1 = new ProdutoNaoPerecivel();
                 try {
-                    super.lista.cadastrar(p1);
+                    menu.lista.cadastrar(p1);
                 } catch (NoSuchElementException e){
                     System.out.println(ANSI_RED + "Valor inválido" + ANSI_RESET);
                 }
-                cadastrarProduto();
                 break;
             case 3:
-                super.mostrarMenuPrincipal();
+                menu.mostrarMenuPrincipal();
                 break;
             default:
                 System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);

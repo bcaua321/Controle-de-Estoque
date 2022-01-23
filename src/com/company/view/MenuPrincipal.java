@@ -15,6 +15,7 @@ public class MenuPrincipal {
 
     public void mostrarMenuPrincipal() throws IOException, InterruptedException {
         Cadastrar cadastrar = new Cadastrar();
+        Mostrar mostrar = new Mostrar();
         Opcoes.menuPrincipal();
 
         int valor = 0;
@@ -30,8 +31,7 @@ public class MenuPrincipal {
                 mostrarMenuPrincipal();
                 break;
             case 2:
-                Mostrar.mostrarProdutos(lista.getListaDeProdutos());
-                mostrarMenuPrincipal();
+                mostrar.manipularProdutos();
                 break;
             case 4:
                 break;

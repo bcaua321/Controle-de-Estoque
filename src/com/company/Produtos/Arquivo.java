@@ -2,6 +2,7 @@ package com.company.Produtos;
 
 import com.company.controllers.Produto;
 import com.company.Produtos.Lista;
+import com.company.controllers.ProdutoNaoPerecivel;
 import com.company.controllers.ProdutoPerecivel;
 
 import java.io.*;
@@ -14,11 +15,19 @@ public class Arquivo {
 
         for (Produto produto: produtos) {
             lista += produto.getProdutoEh() + "," +
+                    produto.getId() + "," +
                     produto.getCodigo() + "," +
                     produto.getProduto() + "," +
                     produto.getFornecedor() + "," +
-                    produto.getCategoria() +  "," +
-                    produto.getDataDeCompra() + "\n";
+                    produto.getCategoria() +  ",";
+                    if(produto instanceof ProdutoPerecivel){
+                      String data = ((ProdutoPerecivel) produto).getDataDeValidade();
+                        lista += data +"\n";
+                    } else {
+                        String data = ((ProdutoNaoPerecivel) produto).getDataDeCompra();
+                        lista += data +"\n";
+                    }
+
         }
 
         return lista;
@@ -47,8 +56,14 @@ public class Arquivo {
             String linha = lerArq.readLine();
             while (linha != null) {
                 String[] arrayLinha = this.trataString(linha);
-                ProdutoPerecivel produtoPerecivel = new ProdutoPerecivel(Integer.parseInt(arrayLinha[1]), arrayLinha[2], arrayLinha[3], arrayLinha[4], arrayLinha[5]);
-                this.lista.addElemento(produtoPerecivel);
+                if(arrayLinha[0] == "perecivel"){
+                    ProdutoPerecivel produtoPerecivel = new ProdutoPerecivel(Integer.parseInt(arrayLinha[1]), Integer.parseInt(arrayLinha[2]), arrayLinha[3], arrayLinha[4], arrayLinha[5], arrayLinha[6]);
+                    this.lista.addElemento(produtoPerecivel);
+                } else  {
+                    ProdutoNaoPerecivel produtoNPerecivel = new ProdutoNaoPerecivel(Integer.parseInt(arrayLinha[1]), Integer.parseInt(arrayLinha[2]), arrayLinha[3], arrayLinha[4], arrayLinha[5], arrayLinha[6]);
+                    this.lista.addElemento(produtoNPerecivel);
+                }
+
                 linha = lerArq.readLine();
             }
 

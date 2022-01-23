@@ -16,7 +16,7 @@ public class Opcoes {
         String[] opcoes = {
                 ANSI_CYAN + "=====================================" + ANSI_RESET,
                 ANSI_PURPLE + "1 " + ANSI_RESET + "- Cadastrar um novo Produto" + "\t\t|",
-                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Mostrar Produtos já Cadastrados" + "\t|",
+                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Produtos já Cadastrados" + "\t\t\t|",
                 ANSI_PURPLE + "3 " + ANSI_RESET  + "- Organizar produtos" + "\t\t\t\t|",
                 ANSI_PURPLE + "4 " + ANSI_RESET  + "- Sair" + "\t\t\t\t\t\t\t|",
                 ANSI_CYAN + "=====================================" + ANSI_RESET
@@ -32,6 +32,19 @@ public class Opcoes {
                 ANSI_PURPLE + "2 " + ANSI_RESET  + "- Produto Não Perecivel" + "\t\t|",
                 ANSI_PURPLE + "3 " + ANSI_RESET + "- Voltar" + "\t\t\t\t\t\t|",
                 ANSI_CYAN + "=================================" + ANSI_RESET
+        };
+
+        Opcoes.printMenu(opcoes);
+    }
+
+    public static void menuProdutos() {
+        String[] opcoes = {
+                ANSI_CYAN + "====================================" + ANSI_RESET,
+                ANSI_PURPLE + "1 " + ANSI_RESET + "- Editar" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Excluir" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "3 " + ANSI_RESET + "- Mostar Produtos já cadastrados" + "\t|",
+                ANSI_PURPLE + "4 " + ANSI_RESET + "- Voltar" + "\t\t\t\t\t\t\t|",
+                ANSI_CYAN + "====================================" + ANSI_RESET
         };
 
         Opcoes.printMenu(opcoes);
