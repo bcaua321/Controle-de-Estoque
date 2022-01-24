@@ -10,6 +10,5 @@ public class Main {
         arq.lerArquivo();
         MenuPrincipal menu = new MenuPrincipal();
         menu.mostrarMenuPrincipal();
-
     }
 }

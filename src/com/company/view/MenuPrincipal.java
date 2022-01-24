@@ -13,7 +13,7 @@ public class MenuPrincipal {
     protected Lista lista = new Lista();
     private Arquivo arquivo = new Arquivo();
 
-    public void mostrarMenuPrincipal() throws IOException, InterruptedException {
+    public void mostrarMenuPrincipal() {
         Cadastrar cadastrar = new Cadastrar();
         Mostrar mostrar = new Mostrar();
         Opcoes.menuPrincipal();
@@ -24,7 +24,7 @@ public class MenuPrincipal {
         } catch (InputMismatchException ex){
             input.next();
         }
-
+        clearScreen();
         switch (valor) {
             case 1:
                 cadastrar.cadastrarProduto();
@@ -34,6 +34,7 @@ public class MenuPrincipal {
                 mostrar.manipularProdutos();
                 break;
             case 4:
+                System.exit(1);
                 break;
             default:
                 System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);
@@ -42,11 +43,8 @@ public class MenuPrincipal {
 
     }
 
-    public void limpaTela() throws IOException, InterruptedException {
-        //Limpa a tela no windows, no linux e no MacOS
-        if (System.getProperty("os.name").contains("Windows"))
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        else
-            Runtime.getRuntime().exec("clear");
+    public static void clearScreen() {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
     }
 }

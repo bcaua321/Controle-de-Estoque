@@ -15,7 +15,7 @@ public class Cadastrar {
     private static final String ANSI_RESET = "\u001B[0m";
 
     private static Scanner input = new Scanner(System.in);
-    public void cadastrarProduto() throws IOException, InterruptedException {
+    public void cadastrarProduto(){
         Opcoes.menuCadastro();
 
         int valor = 0;
@@ -24,7 +24,7 @@ public class Cadastrar {
         } catch (InputMismatchException ex){
             input.next();
         }
-
+        clearScreen();
         switch (valor){
             case 1:
                 ProdutoPerecivel p = new ProdutoPerecivel();
@@ -49,5 +49,10 @@ public class Cadastrar {
                 System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);
         }
         cadastrarProduto();
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
