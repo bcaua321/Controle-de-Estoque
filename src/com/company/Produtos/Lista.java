@@ -21,6 +21,11 @@ public class Lista {
         arq.criaArquivo();
     }
 
+    public void editaElemento(int index){
+        Arquivo arq = new Arquivo();
+        Lista.listaDeProdutos.get(index);
+    }
+
     public ArrayList<Produto> getListaDeProdutos() {
         return Lista.listaDeProdutos;
     }

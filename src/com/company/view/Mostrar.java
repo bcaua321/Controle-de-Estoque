@@ -21,6 +21,7 @@ public class Mostrar  {
             System.out.println();
         }
     }
+
     public void manipularProdutos () {
         Opcoes.menuProdutos();
         int valor = 0;
@@ -37,7 +38,6 @@ public class Mostrar  {
                 break;
             case 2:
                 this.continuarExcluir();
-                this.excluirProduto();
                 break;
             case 3:
                 Mostrar.mostrarProdutos(menu.lista.getListaDeProdutos());
@@ -52,6 +52,11 @@ public class Mostrar  {
     }
 
     public void excluirProduto(){
+        if(menu.lista.getListaDeProdutos().size() == 0) {
+            System.out.println("Nenhum produto cadastrado.");
+            this.manipularProdutos();
+        }
+
         Mostrar.mostrarProdutos(menu.lista.getListaDeProdutos());
         System.out.println("Digite o ID do produto:");
 
@@ -70,10 +75,15 @@ public class Mostrar  {
     }
 
     public void editarProduto(){
+        if(menu.lista.getListaDeProdutos().size() == 0) {
+            System.out.println("Nenhum produto cadastrado.");
+            this.manipularProdutos();
+        }
+        Mostrar.mostrarProdutos(menu.lista.getListaDeProdutos());
         System.out.println("Digite o ID do produto que deseja EDITAR:");
         int valor = input.nextInt();
         if(valor < menu.lista.getListaDeProdutos().size() && valor>= 0){
-            menu.lista.removeElemento(valor);
+            menu.lista.editaElemento(valor);
             return;
         } else {
             while(true){
@@ -81,6 +91,31 @@ public class Mostrar  {
                 this.continuarEditar();
             }
         }
+    }
+
+    public void editarProdutoOpcao(ArrayList<Produto> p){
+        p.toString();
+
+        System.out.println("Digite a opcao do produto que deseja EDITAR:");
+        Opcoes.menuEditar();
+        int valor = 0;
+        try {
+            valor = input.nextInt();
+        } catch (InputMismatchException ex){
+            input.next();
+        }
+
+        switch(valor){
+            case 1:
+                this.excluirProduto();
+                break;
+            case 2:
+                this.menu.mostrarMenuPrincipal();
+                break;
+            default:
+                System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);
+        }
+        continuarExcluir();
     }
 
     public void continuarExcluir() {

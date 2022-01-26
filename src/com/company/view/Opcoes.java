@@ -50,4 +50,16 @@ public class Opcoes {
         Opcoes.printMenu(opcoes);
     }
 
+    public static void menuEditar() {
+        String[] opcoes = {
+                ANSI_CYAN + "====================================" + ANSI_RESET,
+                ANSI_PURPLE + "1 " + ANSI_RESET + "- Codigo" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Produto" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "3 " + ANSI_RESET + "- Fornecedor" + "\t|",
+                ANSI_PURPLE + "4 " + ANSI_RESET + "- Categoria" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "4 " + ANSI_RESET + "- Data" + "\t\t\t\t\t\t\t|",
+                ANSI_CYAN + "====================================" + ANSI_RESET
+        };
+    }
+
 }

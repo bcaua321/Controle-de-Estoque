@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class Arquivo {
     public Lista lista = new Lista();
+
+    // Para formatar o ArrayList no arquivo
     public String listaProdutos(ArrayList<Produto> produtos){
         String lista = "";
 
@@ -33,6 +35,7 @@ public class Arquivo {
         return lista;
     }
 
+    // FUnção para criar um arquivo com o ArrayList, sempre será chamado quando for criar, atualizar e deletar um produto.
     public void criaArquivo(){
         FileWriter arquivo;
         String lista = listaProdutos(this.lista.getListaDeProdutos());
@@ -48,6 +51,7 @@ public class Arquivo {
         }
     }
 
+    // Será chamado somente no início do programa
     public void lerArquivo(){
         try {
             FileReader arq = new FileReader("src/com/company/Produtos/dados.txt");
@@ -55,7 +59,7 @@ public class Arquivo {
 
             String linha = lerArq.readLine();
             while (linha != null) {
-                String[] arrayLinha = this.trataString(linha);
+                String[] arrayLinha = linha.split(",");
                 if(arrayLinha[0] == "perecivel"){
                     ProdutoPerecivel produtoPerecivel = new ProdutoPerecivel(Integer.parseInt(arrayLinha[1]), Integer.parseInt(arrayLinha[2]), arrayLinha[3], arrayLinha[4], arrayLinha[5], arrayLinha[6]);
                     this.lista.addElemento(produtoPerecivel);
@@ -71,9 +75,5 @@ public class Arquivo {
         } catch (IOException e) {
             System.err.printf("Erro na conexão com base dados\n");
         }
-    }
-
-    private String[] trataString (String linha){
-        return linha.split(",");
     }
 }
