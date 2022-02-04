@@ -1,9 +1,6 @@
 package com.company.Produtos;
 
 import com.company.controllers.Produto;
-import com.company.Produtos.Lista;
-import com.company.controllers.ProdutoNaoPerecivel;
-import com.company.controllers.ProdutoPerecivel;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,26 +13,19 @@ public class Arquivo {
         String lista = "";
 
         for (Produto produto: produtos) {
-            lista += produto.getProdutoEh() + "," +
-                    produto.getId() + "," +
+            lista += produto.getId() + "," +
                     produto.getCodigo() + "," +
                     produto.getProduto() + "," +
+                    produto.getPreco() + "," +
                     produto.getFornecedor() + "," +
-                    produto.getCategoria() +  ",";
-                    if(produto instanceof ProdutoPerecivel){
-                      String data = ((ProdutoPerecivel) produto).getDataDeValidade();
-                        lista += data +"\n";
-                    } else {
-                        String data = ((ProdutoNaoPerecivel) produto).getDataDeCompra();
-                        lista += data +"\n";
-                    }
-
+                    produto.getCategoria() +  "," +
+                    produto.getDataDeCompra() + "\n";
         }
 
         return lista;
     }
 
-    // FUnção para criar um arquivo com o ArrayList, sempre será chamado quando for criar, atualizar e deletar um produto.
+    // Função para criar um arquivo com o ArrayList, sempre será chamado quando for criar, atualizar e deletar um produto.
     public void criaArquivo(){
         FileWriter arquivo;
         String lista = listaProdutos(this.lista.getListaDeProdutos());
@@ -60,13 +50,8 @@ public class Arquivo {
             String linha = lerArq.readLine();
             while (linha != null) {
                 String[] arrayLinha = linha.split(",");
-                if(arrayLinha[0] == "perecivel"){
-                    ProdutoPerecivel produtoPerecivel = new ProdutoPerecivel(Integer.parseInt(arrayLinha[1]), Integer.parseInt(arrayLinha[2]), arrayLinha[3], arrayLinha[4], arrayLinha[5], arrayLinha[6]);
-                    this.lista.addElemento(produtoPerecivel);
-                } else  {
-                    ProdutoNaoPerecivel produtoNPerecivel = new ProdutoNaoPerecivel(Integer.parseInt(arrayLinha[1]), Integer.parseInt(arrayLinha[2]), arrayLinha[3], arrayLinha[4], arrayLinha[5], arrayLinha[6]);
-                    this.lista.addElemento(produtoNPerecivel);
-                }
+                Produto produto = new Produto(Integer.parseInt(arrayLinha[0]), Integer.parseInt(arrayLinha[1]), arrayLinha[2], Double.parseDouble(arrayLinha[3]), arrayLinha[4], arrayLinha[5], arrayLinha[6]);
+                this.lista.addElemento(produto);
 
                 linha = lerArq.readLine();
             }

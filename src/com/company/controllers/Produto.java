@@ -1,21 +1,27 @@
 package com.company.controllers;
 
-public abstract class Produto {
+import java.util.Date;
+
+public class Produto {
     private int id;
     private int codigo;
     private String produto;
+    private double preco;
     private String fornecedor;
     private String categoria;
-    private String produtoEh;
+    private String dataDeCompra;
+    private long dataComparar;
 
     public Produto(){}
 
-    public Produto(int id, int codigo, String produto, String fornecedor, String categoria){
+    public Produto(int id, int codigo, String produto, double preco, String fornecedor, String categoria, String dataDeCompra){
         this.id = id;
         this.codigo = codigo;
         this.produto = produto;
+        this.preco = preco;
         this.fornecedor = fornecedor;
         this.categoria = categoria;
+        this.dataDeCompra = dataDeCompra;
     }
 
     public int getId() {
@@ -42,6 +48,15 @@ public abstract class Produto {
         this.produto = produto;
     }
 
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+
     public String getFornecedor() {
         return fornecedor;
     }
@@ -58,5 +73,27 @@ public abstract class Produto {
         this.categoria = categoria;
     }
 
-    public String getProdutoEh() { return produtoEh; }
+    public String getDataDeCompra() {
+        return dataDeCompra;
+    }
+
+    public void setDataDeCompra(String dataDeCompra) {
+        this.dataDeCompra = dataDeCompra;
+    }
+
+    public long getDataComparar() {
+        return dataComparar;
+    }
+
+    public void setDataComparar(long dataComparar) {
+        this.dataComparar = dataComparar;
+    }
+
+    @Override
+    public String toString() {
+        return  "id:" +this.getId() + "\n"+ "Código: " + this.getCodigo() + "\n" + "Produto: " +
+                this.getProduto() + "\n" + "Fornecedor: "
+                + this.getFornecedor() + "\n" + "Categoria: " + this.getCategoria()
+                + "\n" + "Data de Validade: " + this.getDataDeCompra();
+    }
 }

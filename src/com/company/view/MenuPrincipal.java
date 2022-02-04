@@ -2,6 +2,8 @@ package com.company.view;
 
 import com.company.Produtos.Arquivo;
 import com.company.Produtos.Lista;
+import com.company.Produtos.OrdenaLista;
+
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,6 +17,7 @@ public class MenuPrincipal {
 
     public void mostrarMenuPrincipal() {
         Cadastrar cadastrar = new Cadastrar();
+        OrdenaLista listaOrdenada = new OrdenaLista();
         Mostrar mostrar = new Mostrar();
         Opcoes.menuPrincipal();
 
@@ -28,19 +31,20 @@ public class MenuPrincipal {
         switch (valor) {
             case 1:
                 cadastrar.cadastrarProduto();
-                mostrarMenuPrincipal();
                 break;
             case 2:
                 mostrar.manipularProdutos();
+                break;
+            case 3:
+                listaOrdenada.ordenarLista();
                 break;
             case 4:
                 System.exit(1);
                 break;
             default:
                 System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);
-                mostrarMenuPrincipal();
         }
-
+        mostrarMenuPrincipal();
     }
 
     public static void clearScreen() {

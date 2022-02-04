@@ -15,7 +15,6 @@ public class Mostrar  {
     private static Scanner input = new Scanner(System.in);
 
     public static void mostrarProdutos (ArrayList<Produto> p) {
-        if(p.size() == 0) System.out.println("Nenhum produto cadastrado.");
         for (int i = 0; i < p.size(); i++){
             System.out.println(p.get(i).toString());
             System.out.println();
@@ -23,6 +22,12 @@ public class Mostrar  {
     }
 
     public void manipularProdutos () {
+        Lista lista = new Lista();
+        if(lista.getListaDeProdutos().size() == 0) {
+            System.out.println("Nenhum produto cadastrado.");
+            return;
+        }
+        Editar editar = new Editar();
         Opcoes.menuProdutos();
         int valor = 0;
         try {
@@ -34,7 +39,7 @@ public class Mostrar  {
         clearScreen();
         switch(valor){
             case 1:
-                this.continuarEditar();
+                editar.continuarEditar();
                 break;
             case 2:
                 this.continuarExcluir();
@@ -52,11 +57,6 @@ public class Mostrar  {
     }
 
     public void excluirProduto(){
-        if(menu.lista.getListaDeProdutos().size() == 0) {
-            System.out.println("Nenhum produto cadastrado.");
-            this.manipularProdutos();
-        }
-
         Mostrar.mostrarProdutos(menu.lista.getListaDeProdutos());
         System.out.println("Digite o ID do produto:");
 
@@ -74,24 +74,6 @@ public class Mostrar  {
 
     }
 
-    public void editarProduto(){
-        if(menu.lista.getListaDeProdutos().size() == 0) {
-            System.out.println("Nenhum produto cadastrado.");
-            this.manipularProdutos();
-        }
-        Mostrar.mostrarProdutos(menu.lista.getListaDeProdutos());
-        System.out.println("Digite o ID do produto que deseja EDITAR:");
-        int valor = input.nextInt();
-        if(valor < menu.lista.getListaDeProdutos().size() && valor>= 0){
-            menu.lista.editaElemento(valor);
-            return;
-        } else {
-            while(true){
-                System.out.println(ANSI_RED + "Não exite produto com esse ID\n" + ANSI_RESET);
-                this.continuarEditar();
-            }
-        }
-    }
 
     public void editarProdutoOpcao(ArrayList<Produto> p){
         p.toString();
@@ -140,27 +122,6 @@ public class Mostrar  {
         continuarExcluir();
     }
 
-    public void continuarEditar() {
-        System.out.println("Deseja continuar?\n1 - SIM\t\t2 - NAO\n");
-        int valor = 0;
-        try {
-            valor = input.nextInt();
-        } catch (InputMismatchException ex){
-            input.next();
-        }
-
-        switch(valor){
-            case 1:
-                this.editarProduto();
-                break;
-            case 2:
-                this.menu.mostrarMenuPrincipal();
-                break;
-            default:
-                System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);
-        }
-        continuarEditar();
-    }
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");

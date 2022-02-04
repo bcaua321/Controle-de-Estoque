@@ -1,54 +1,56 @@
 package com.company.view;
 
+import com.company.Produtos.Arquivo;
+import com.company.Produtos.Lista;
 import com.company.controllers.Produto;
-import com.company.controllers.ProdutoNaoPerecivel;
-import com.company.controllers.ProdutoPerecivel;
 
-import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Cadastrar {
-    MenuPrincipal menu = new MenuPrincipal();
+    Lista listaProdutos = new Lista();
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_RESET = "\u001B[0m";
 
     private static Scanner input = new Scanner(System.in);
     public void cadastrarProduto(){
-        Opcoes.menuCadastro();
+        Produto p = new Produto();
+        try{
+            this.cadastrar(p);
+        } catch (NoSuchElementException e){
+            System.out.println(ANSI_RED + "Valor inválido" + ANSI_RESET);
+            return;
+        }
+    }
 
-        int valor = 0;
-        try {
-            valor = input.nextInt();
-        } catch (InputMismatchException ex){
-            input.next();
-        }
-        clearScreen();
-        switch (valor){
-            case 1:
-                ProdutoPerecivel p = new ProdutoPerecivel();
-                try{
-                    menu.lista.cadastrar(p);
-                } catch (NoSuchElementException e){
-                    System.out.println(ANSI_RED + "Valor inválido" + ANSI_RESET);
-                }
-                break;
-            case 2:
-                ProdutoNaoPerecivel p1 = new ProdutoNaoPerecivel();
-                try {
-                    menu.lista.cadastrar(p1);
-                } catch (NoSuchElementException e){
-                    System.out.println(ANSI_RED + "Valor inválido" + ANSI_RESET);
-                }
-                break;
-            case 3:
-                menu.mostrarMenuPrincipal();
-                break;
-            default:
-                System.out.println(ANSI_RED + "Opção inválida" + ANSI_RESET);
-        }
-        cadastrarProduto();
+    public void cadastrar(Produto p){
+        Arquivo arq = new Arquivo();
+        Scanner input = new Scanner(System.in);
+        System.out.println("--- Cadastro de Produto ---");
+        System.out.println("Código: ");
+        int code = input.nextInt();
+        System.out.println("Produto: ");
+        input.nextLine();
+        String produto = input.nextLine();
+        System.out.println("Preco: ");
+        Double preco = input.nextDouble();
+        System.out.println("Fornecedor: ");
+        input.nextLine();
+        String fornecedor = input.nextLine();
+        System.out.println("Categoria: ");
+        String categoria = input.nextLine();
+        String data;
+        System.out.println("Data de Compra (DD/MM/AAAA): ");
+        data = input.nextLine();
+        p = new Produto(listaProdutos.getListaDeProdutos().size(),
+                code,
+                produto,
+                preco,
+                fornecedor,
+                categoria,
+                data);
+        listaProdutos.addElemento(p);
+        arq.criaArquivo();
     }
 
     public static void clearScreen() {
