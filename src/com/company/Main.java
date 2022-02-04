@@ -1,6 +1,6 @@
 package com.company;
-import com.company.Produtos.Arquivo;
-import com.company.view.MenuPrincipal;
+import com.company.dados.Arquivo;
+import com.company.menus.MenuPrincipal;
 import java.io.IOException;
 
 public class Main {

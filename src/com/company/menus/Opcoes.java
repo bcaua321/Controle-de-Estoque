@@ -1,6 +1,4 @@
-package com.company.view;
-
-import com.company.Produtos.Lista;
+package com.company.menus;
 
 public class Opcoes {
     private static final String ANSI_RESET = "\u001B[0m";

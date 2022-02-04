@@ -1,6 +1,6 @@
-package com.company.view;
+package com.company.menus;
 
-import com.company.controllers.Produto;
+import com.company.produto.Produto;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

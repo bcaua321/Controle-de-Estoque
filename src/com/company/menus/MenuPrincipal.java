@@ -1,10 +1,9 @@
-package com.company.view;
+package com.company.menus;
 
-import com.company.Produtos.Arquivo;
-import com.company.Produtos.Lista;
-import com.company.Produtos.OrdenaLista;
+import com.company.dados.Arquivo;
+import com.company.dados.Lista;
+import com.company.dados.OrdenaLista;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

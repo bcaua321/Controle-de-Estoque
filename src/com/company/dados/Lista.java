@@ -1,9 +1,8 @@
-package com.company.Produtos;
+package com.company.dados;
 
-import com.company.controllers.Produto;
+import com.company.produto.Produto;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class Lista {

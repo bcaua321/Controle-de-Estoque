@@ -1,6 +1,4 @@
-package com.company.controllers;
-
-import java.util.Date;
+package com.company.produto;
 
 public class Produto {
     private int id;
