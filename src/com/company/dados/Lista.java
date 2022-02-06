@@ -9,20 +9,24 @@ public class Lista {
     private static ArrayList<Produto> listaDeProdutos = new ArrayList<Produto>();
 
     public void addElemento(Produto produto){
-        Arquivo arq = new Arquivo();
         Lista.listaDeProdutos.add(produto);
-        arq.criaArquivo();
+        salvarAlteracoes();
     }
 
     public void removeElemento(int index){
-        Arquivo arq = new Arquivo();
         Lista.listaDeProdutos.remove(index);
-        arq.criaArquivo();
+        this.salvarAlteracoes();
     }
 
-    public void editaElemento(int index){
+    // irá criar um novo "banco de dados"
+    public void salvarAlteracoes(){
+        int i = 0;
         Arquivo arq = new Arquivo();
-        Lista.listaDeProdutos.get(index);
+        for (Produto produto: this.getListaDeProdutos()) {
+            produto.setId(i);
+            i++;
+        }
+        arq.criaArquivo();
     }
 
     public ArrayList<Produto> getListaDeProdutos() {

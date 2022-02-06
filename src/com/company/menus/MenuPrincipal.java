@@ -1,7 +1,6 @@
 package com.company.menus;
 
 import com.company.dados.Arquivo;
-import com.company.dados.Lista;
 import com.company.dados.OrdenaLista;
 
 import java.util.InputMismatchException;
@@ -11,7 +10,6 @@ public class MenuPrincipal {
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_RESET = "\u001B[0m";
     private static Scanner input = new Scanner(System.in);
-    protected Lista lista = new Lista();
     private Arquivo arquivo = new Arquivo();
 
     public void mostrarMenuPrincipal() {

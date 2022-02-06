@@ -3,7 +3,7 @@ package com.company.produto;
 public class Produto {
     private int id;
     private int codigo;
-    private String produto;
+    private String produtoNome;
     private double preco;
     private String fornecedor;
     private String categoria;
@@ -12,10 +12,10 @@ public class Produto {
 
     public Produto(){}
 
-    public Produto(int id, int codigo, String produto, double preco, String fornecedor, String categoria, String dataDeCompra){
+    public Produto(int id, int codigo, String produtoNome, double preco, String fornecedor, String categoria, String dataDeCompra){
         this.id = id;
         this.codigo = codigo;
-        this.produto = produto;
+        this.produtoNome = produtoNome;
         this.preco = preco;
         this.fornecedor = fornecedor;
         this.categoria = categoria;
@@ -38,12 +38,12 @@ public class Produto {
         this.codigo = codigo;
     }
 
-    public String getProduto() {
-        return this.produto;
+    public String getProdutoNome() {
+        return this.produtoNome;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setProdutoNome(String produto) {
+        this.produtoNome = produto;
     }
 
     public double getPreco() {
@@ -90,7 +90,7 @@ public class Produto {
     @Override
     public String toString() {
         return  "id:" +this.getId() + "\n"+ "Código: " + this.getCodigo() + "\n" + "Produto: " +
-                this.getProduto() + "\n" + "Fornecedor: "
+                this.getProdutoNome() + "\n" + "Fornecedor: "
                 + this.getFornecedor() + "\n" + "Categoria: " + this.getCategoria()
                 + "\n" + "Data de Validade: " + this.getDataDeCompra();
     }

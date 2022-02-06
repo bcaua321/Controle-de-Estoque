@@ -43,11 +43,12 @@ public class Opcoes {
         String[] opcoes = {
                 ANSI_CYAN + "====================================" + ANSI_RESET,
                 ANSI_PURPLE + "1 " + ANSI_RESET + "- Codigo" + "\t\t\t\t\t\t\t|",
-                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Produto" + "\t\t\t\t\t\t\t|",
-                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Preco" + "\t\t\t\t\t\t\t|",
-                ANSI_PURPLE + "3 " + ANSI_RESET + "- Fornecedor" + "\t\t\t\t\t\t|",
-                ANSI_PURPLE + "4 " + ANSI_RESET + "- Categoria" + "\t\t\t\t\t\t|",
-                ANSI_PURPLE + "4 " + ANSI_RESET + "- Data de Compra" + "\t\t\t\t\t|",
+                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Nome" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "3 " + ANSI_RESET  + "- Preco" + "\t\t\t\t\t\t\t|",
+                ANSI_PURPLE + "4 " + ANSI_RESET + "- Fornecedor" + "\t\t\t\t\t\t|",
+                ANSI_PURPLE + "5 " + ANSI_RESET + "- Categoria" + "\t\t\t\t\t\t|",
+                ANSI_PURPLE + "6 " + ANSI_RESET + "- Data de Compra" + "\t\t\t\t\t|",
+                ANSI_PURPLE + "7 " + ANSI_RESET  + "- Sair" + "\t\t\t\t\t\t\t|",
                 ANSI_CYAN + "====================================" + ANSI_RESET
         };
 

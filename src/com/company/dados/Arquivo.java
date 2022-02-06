@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Arquivo {
     public Lista lista = new Lista();
+    private String path = "src/com/company/dados/dados.txt";
 
     // Para formatar o ArrayList no arquivo
     public String listaProdutos(ArrayList<Produto> produtos){
@@ -15,7 +16,7 @@ public class Arquivo {
         for (Produto produto: produtos) {
             lista += produto.getId() + "," +
                     produto.getCodigo() + "," +
-                    produto.getProduto() + "," +
+                    produto.getProdutoNome() + "," +
                     produto.getPreco() + "," +
                     produto.getFornecedor() + "," +
                     produto.getCategoria() +  "," +
@@ -31,7 +32,7 @@ public class Arquivo {
         String lista = listaProdutos(this.lista.getListaDeProdutos());
 
         try {
-            arquivo = new FileWriter(new File("src/com/company/Produtos/dados.txt"));
+            arquivo = new FileWriter(new File(path));
             arquivo.write(lista);
             arquivo.close();
         } catch (IOException e) {
@@ -44,7 +45,7 @@ public class Arquivo {
     // Será chamado somente no início do programa
     public void lerArquivo(){
         try {
-            FileReader arq = new FileReader("src/com/company/Produtos/dados.txt");
+            FileReader arq = new FileReader(path);
             BufferedReader lerArq = new BufferedReader(arq);
 
             String linha = lerArq.readLine();

@@ -26,6 +26,7 @@ public class Cadastrar {
     public void cadastrar(Produto p){
         Arquivo arq = new Arquivo();
         Scanner input = new Scanner(System.in);
+
         System.out.println("--- Cadastro de Produto ---");
         System.out.println("Código: ");
         int code = input.nextInt();
