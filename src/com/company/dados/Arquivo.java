@@ -9,6 +9,22 @@ public class Arquivo {
     public Lista lista = new Lista();
     private String path = "src/com/company/dados/dados.txt";
 
+    // Função para criar um arquivo com o ArrayList, sempre será chamado quando for criar, atualizar e deletar um produto.
+    public void criaArquivo(){
+        FileWriter arquivo;
+        String lista = listaProdutos(this.lista.getListaDeProdutos());
+
+        try {
+            arquivo = new FileWriter(new File(path));
+            arquivo.write(lista);
+            arquivo.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     // Para formatar o ArrayList no arquivo
     public String listaProdutos(ArrayList<Produto> produtos){
         String lista = "";
@@ -26,23 +42,7 @@ public class Arquivo {
         return lista;
     }
 
-    // Função para criar um arquivo com o ArrayList, sempre será chamado quando for criar, atualizar e deletar um produto.
-    public void criaArquivo(){
-        FileWriter arquivo;
-        String lista = listaProdutos(this.lista.getListaDeProdutos());
-
-        try {
-            arquivo = new FileWriter(new File(path));
-            arquivo.write(lista);
-            arquivo.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Será chamado somente no início do programa
+    // Será chamado somente no início do programa, para ler o que tem no arquivo .txt e passar ao arraylist
     public void lerArquivo(){
         try {
             FileReader arq = new FileReader(path);

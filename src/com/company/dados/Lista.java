@@ -6,11 +6,12 @@ import java.util.ArrayList;
 
 
 public class Lista {
+    // Para armazenar todos os produtos
     private static ArrayList<Produto> listaDeProdutos = new ArrayList<Produto>();
 
     public void addElemento(Produto produto){
         Lista.listaDeProdutos.add(produto);
-        salvarAlteracoes();
+        this.salvarAlteracoes();
     }
 
     public void removeElemento(int index){
@@ -18,7 +19,7 @@ public class Lista {
         this.salvarAlteracoes();
     }
 
-    // irá criar um novo "banco de dados"
+    // irá setar corretamente o id dos produtos
     public void salvarAlteracoes(){
         int i = 0;
         Arquivo arq = new Arquivo();

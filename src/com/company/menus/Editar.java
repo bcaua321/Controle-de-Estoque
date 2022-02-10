@@ -14,6 +14,7 @@ public class Editar {
     private static final String ANSI_RESET = "\u001B[0m";
     private static Scanner input = new Scanner(System.in);
 
+    // Para verificar se realmente o cliente quer editar
     public void continuarEditar() {
         System.out.println("Deseja continuar?\n1 - SIM\t\t2 - NAO");
         int valor = 0;
@@ -37,6 +38,7 @@ public class Editar {
 
     }
 
+    // Para escolher o ID
     public void editarProduto(){
         Mostrar.mostrarProdutos(lista.getListaDeProdutos());
         System.out.println("Digite o ID do produto que deseja EDITAR:");
@@ -52,6 +54,7 @@ public class Editar {
         }
     }
 
+    // Irá ser mostrado qual atributo deseja editar para o usuário escolher
     public void editarItem(int n){
         Produto item = lista.getListaDeProdutos().get(n);
         System.out.println("\n" + item.toString());
@@ -64,17 +67,7 @@ public class Editar {
         } catch (InputMismatchException ex){
             input.next();
         }
-        /*
-        ANSI_CYAN + "====================================" + ANSI_RESET,
-                ANSI_PURPLE + "1 " + ANSI_RESET + "- Codigo" + "\t\t\t\t\t\t\t|",
-                ANSI_PURPLE + "2 " + ANSI_RESET  + "- Produto" + "\t\t\t\t\t\t\t|",
-                ANSI_PURPLE + "3 " + ANSI_RESET  + "- Preco" + "\t\t\t\t\t\t\t|",
-                ANSI_PURPLE + "4 " + ANSI_RESET + "- Fornecedor" + "\t\t\t\t\t\t|",
-                ANSI_PURPLE + "5 " + ANSI_RESET + "- Categoria" + "\t\t\t\t\t\t|",
-                ANSI_PURPLE + "6 " + ANSI_RESET + "- Data de Compra" + "\t\t\t\t\t|",
-                ANSI_CYAN + "====================================" + ANSI_RESET
 
-         */
         switch(valor){
             case 1:
                 EditarOpcao.codigo(item);
@@ -107,6 +100,7 @@ public class Editar {
     }
 }
 
+// E finalmente será editado
 class EditarOpcao {
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_CYAN = "\u001B[36m";

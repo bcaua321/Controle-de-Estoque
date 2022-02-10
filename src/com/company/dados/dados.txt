@@ -1,3 +1,1 @@
-0,23,SDKSK,29.8,asdfs,pres,29/06/2018
-1,32,maça,3.4,feirinha dali,comida,23/09/2005
-2,24,Banana,40.0,Joaquim,Comida,29/08/2021
+0,24,Banana,40.0,Joaquim,Comida,29/08/2021

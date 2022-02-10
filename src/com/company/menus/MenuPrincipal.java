@@ -24,7 +24,7 @@ public class MenuPrincipal {
         } catch (InputMismatchException ex){
             input.next();
         }
-        clearScreen();
+
         switch (valor) {
             case 1:
                 cadastrar.cadastrarProduto();

@@ -4,6 +4,7 @@ import com.company.produto.Produto;
 
 import java.util.*;
 
+// Para criar um novo arraylist para ordenar
 public class OrdenaLista{
     Lista listaProdutos = new Lista();
     Date data;
@@ -23,17 +24,7 @@ public class OrdenaLista{
         }
     }
 
-
-    public void convertDate(){
-        for (Produto produto: listaProdutos.getListaDeProdutos()) {
-            data = new Date();
-            data.parse(produto.getDataDeCompra());
-            produto.setDataComparar(data.getTime());
-        }
-    }
-
     public void ordenarLista(){
-        this.convertDate();
         ArrayList<ProdutoItem> listaOrdenada = new ArrayList<>();
         for (Produto produto: listaProdutos.getListaDeProdutos()) {
             listaOrdenada.add(new ProdutoItem(produto));
